@@ -1,0 +1,10 @@
+<div class="palet">
+    <div *ngFor="let menu1Item of treemd['menu1']; let i=index">
+        <div class="dirItem"
+             (click)="click$.next()"
+             [style.outline]="getStyle2(i)"
+             (click)="selectDir(i)">
+            {{menu1Item[0]}} <br> {{menu1Item[1]}}
+        </div>
+    </div>
+</div>

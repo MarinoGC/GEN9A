@@ -1,0 +1,117 @@
+@boxShadow1: #333333;
+@boxShadow3: #b0b0b0;
+@vlak1: #3b3c45;
+@menuC: #fbac46;
+@letterL1: #808495;
+@letterL2: rgba(143, 148, 172, 0.4);
+@backSmall: rgba(165, 165, 165, 0.6);
+@menuZij1: #2c2e33;
+@letterL1: #8f94ac;
+@letterL2: rgba(143, 148, 172, 0.4);
+@knopO1: #4e515e;
+@knopO2: rgba(78, 81, 94, 0.5);
+@oranje1: #fba127;
+@outGroot: #6e3037;
+//________________________________________________________
+body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  //  overflow: hidden;
+}
+header {
+  text-align: center;
+  background-color: @vlak1;
+  color: white;
+  box-shadow: 0px 4px 4px @letterL2;
+  z-index: 5;
+}
+main {
+  background-color: rgba(178, 138, 105, 0.47);
+}
+footer {
+  background-color: @vlak1;
+  color: @letterL1;
+  cursor: default;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  box-shadow: 0px -3px 4px @boxShadow3;
+}
+.lineS1 {
+  color: @menuC;
+  background-color: @menuC;
+  height: 8px;
+  width: 100vw;
+  z-index: 5;
+}
+//________________________________________
+.mainNav {
+  background-color: @menuZij1;
+  width: 9em;
+  box-shadow: 5px 0px 5px @letterL2;
+  height: 100%;
+}
+.mainKeuze {
+  color: @letterL1;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 20px 5px 10px 18px;    //top - right - bottom - left
+  margin-bottom: 1em;
+}
+.info {
+}
+//_____________________________________________________
+.groot {
+  position: absolute;
+  img {
+    object-fit: contain;
+    z-index: 15;
+    outline: 4px solid @outGroot;
+    box-shadow: 18px 18px 20px rgba(30, 30, 30, 0.6);
+    height: auto;
+    width: auto;
+  }
+}
+.trashWarning {
+  width: 30em;
+  height: 7em;
+  background-color: #5c1412;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+//_____________________________________________________________________
+.boxL {
+  position: absolute;
+  width: 33vw;
+  z-index: 20;
+  background-color: @backSmall;
+  border-radius: 20px;
+  top: 50vh;
+  left: 25vw;
+  height: 25vh;
+  padding: 20px;
+  transform: translate(-15vw, -25vh);
+  color:@menuC;
+  text-shadow:
+          2px 2px 0px rgba(0, 0, 0, 0.8);
+  z-index: 20;
+}
+.boxR {
+  position: absolute;
+  z-index: 20;
+  background-color: rgba(238, 238, 238, 0.9);
+  border-radius: 20px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+  font-size: 1em;
+  padding: 15px;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+//_____________________________________________________________________
+

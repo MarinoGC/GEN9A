@@ -1,0 +1,89 @@
+.tree-nav {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 175px;
+  background-color: rgba(44, 46, 51, 0.8);
+}
+.tree-nav0 {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 175px;
+  background-color: rgba(44, 46, 51, 0.8);
+  left: 10px;
+}
+.tree-nav1 {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 175px;
+  background-color: rgba(44, 46, 51, 0.8);
+  left: 200px;
+}
+.tree-nav2 {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 175px;
+  background-color: rgba(44, 46, 51, 0.8);
+  left: 390px;
+}
+.inter {
+  position: absolute;
+  top: 1em;
+  left: 40em;
+  color: white;
+  size: 1em;
+  z-index: 3;
+}
+.palet {
+  position: absolute;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+figure {
+  margin: 10px;
+  border: double 4px white;
+  outline: solid 3px white;
+  display: block;
+  height: 120px;
+  flex: 0;
+  position: relative;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+  z-index: 0;
+  cursor: pointer;
+}
+.button {
+  clear: none;
+  float: left;
+  margin: 10px 5px 10px 18px;
+  font-size: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: GillSans;
+  cursor: pointer;
+}
+.button.active {
+  color: white;
+}
+.button:hover {
+  background-color: rgba(78, 81, 94, 0.5);
+}
+.button2 {
+  clear: none;
+  float: left;
+  margin: 10px 5px 10px 18px;
+  font-size: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: GillSans;
+  cursor: pointer;
+  color: #8f94ac;
+  clear: both;
+}

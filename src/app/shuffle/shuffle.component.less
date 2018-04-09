@@ -1,0 +1,89 @@
+@menuZij1: #a8201e;
+@menuZij2: rgba(44, 46, 51, 0.8);
+@letterL1: #8f94ac;
+@letterL2: rgba(189, 194, 221, 0.8);
+@knopO2: rgba(78, 81, 94, 0.5);
+
+.tree-nav {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 175px;
+  //  padding-left: 10px;
+  background-color: @menuZij2;
+}
+
+.tree-nav0 {
+  .tree-nav;
+  left: 10px;
+}
+.tree-nav1 {
+  .tree-nav;
+  left: 200px;
+}
+.tree-nav2 {
+  .tree-nav;
+  left: 390px;
+}
+
+
+//_____________________________________________________
+.inter {
+  position: absolute;
+  top: 1em;
+  left: 40em;
+  color: white;
+  size: 1em;
+  z-index: 3;
+}
+//_____________________________________________________
+.palet {
+  position: absolute;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+figure {
+  margin: 10px;
+  border: double 4px white;
+  outline: solid 3px white;
+  display: block;
+  height: 120px;
+  flex: 0;
+  position: relative;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+  z-index: 0;
+  cursor: pointer;
+}
+
+//_____________________________________________________
+//________________________________________
+//_____________________________________________________________________
+.button {
+  clear: none;
+  float: left;
+  margin: 10px 5px 10px 18px;    //top - right - bottom - left
+  font-size: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: GillSans;
+  //  background-color: @vlak1;
+  cursor: pointer;
+}
+.button.active {
+  color: white;
+}
+.button:hover {
+  background-color: @knopO2;
+}
+//______________________________________________________________
+.button2 {
+  .button;
+  color: @letterL1;
+  clear: both;
+}

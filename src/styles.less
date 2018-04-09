@@ -1,0 +1,158 @@
+//@backSmall: rgba(165, 165, 165, 0.6);
+//@menuZij1: #2c2e33;
+@letterL1: #8f94ac;
+//@letterL2: rgba(143, 148, 172, 0.4);
+//@knopO1: #4e515e;
+@knopO2: rgba(78, 81, 94, 0.5);
+@oranje1: #fba127;
+//@outGroot: #6e3037;
+//______________________________________________________________
+
+@font-face {
+  font-family: 'GillSans';
+  src: url('css/GillSans/GillSans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GillSansBold';
+  src: url('css/GillSansBold/GillSansBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GillSansLight';
+  src: url('css/GillSansLight/GillSansLight.ttf') format('truetype');
+}
+@import url("./css/lesshat.less");
+@import url("./css/bootstrap.css");
+@import url("./css/bootstrap-grid.css");
+@import url("./css/bootstrap-reboot.css");
+
+body {
+  font-family: 'GillSans', Arial, Helvetica, sans-serif;
+}
+
+@import url("./css/lesshat.less");
+@import url("./css/GillSans/stylesheet.css");
+@import url("./css/GillSansBold/stylesheet.css");
+@import url("./css/GillSansLight/stylesheet.css");
+//______________________________________________________________
+//________________________________________
+//______________________________________________________________
+
+.button {
+  clear: none;
+  float: left;
+  margin: 10px 5px 10px 18px;    //top - right - bottom - left
+  font-size: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: GillSans;
+  //  background-color: @vlak1;
+  cursor: pointer;
+}
+.button.active {
+  color: white;
+}
+.button:hover {
+  background-color: @knopO2;
+}
+//______________________________________________________________
+.button1 {
+  .button;
+  color: @letterL1;
+  clear: none;
+}
+//______________________________________________________________
+.button2 {
+  .button;
+  color: @letterL1;
+  clear: both;
+}
+//______________________________________________________________
+.button3 {
+  .button;
+  clear: left;
+  color: black;
+}
+//______________________________________________________________
+.button4 {
+  .button;
+  clear: none;
+  font-size: 1em;
+  background-color: @oranje1;
+  border-radius: 10px;
+  color: black;
+}
+//______________________________________________________________
+.button5 {
+  .button;
+  clear: none;
+  background-color: @knopO2;
+  color: white;
+}
+//______________________________________________________________
+.buttonHelp {
+  .button;
+  position: absolute;
+  color: #dd0a31;
+  right: 20px;
+  background-color: @knopO2;
+}
+//______________________________________________________________
+//______________________________________________________________
+.buttonC {
+  width: 200px;
+  display: block;
+  outline: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 50px;
+  border: 1px solid black;
+  margin: 20px auto 0;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.6);
+}
+//______________________________________________________________
+.button6 {
+  .buttonC;
+  background: red;
+  color: #fff;
+  cursor: pointer;
+}
+//______________________________________________________________
+.button7 {
+  .buttonC;
+  background: green;
+  color: #fff;
+  cursor: pointer;
+}
+.button8 {
+  .buttonC;
+  background: #aab2ca;
+  color: black;
+}
+//______________________________________________________________
+.FC23 {
+  position:absolute;
+  font-size: 1em;
+  color: white;
+  text-align: left;
+  margin-left: 18px;
+  z-index: 5;
+}
+.FC2 {
+  .button;
+  .FC23;
+  top: 0px;
+  left: 46em;
+}
+.FC3 {
+  .button;
+  .FC23;
+  position:absolute;
+  top: 22px;
+  left: 47em;
+}
+//______________________________________________________________

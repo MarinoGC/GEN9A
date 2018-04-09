@@ -1,0 +1,81 @@
+<div *ngFor="let pagina of teksten; let i = index"><div class="button5" (click)="selectedPage(pagina)">pagina {{ i }}</div></div>
+
+<div class="divid1"
+            [ngStyle]="{'width.px': sizeI['breedte'] - 250}">
+    <div *ngFor="let item of localPage; let i = index">
+        <button *ngIf="(i < 10)" class="knop1" (click)="selectedNummer(i)" id="VA{{ i }}">
+            PAGE {{ localPageN }} | INFO {{ i }}
+        </button>
+    </div>
+    <div class="divid1"></div>
+    <div *ngFor="let item of localPage; let i = index">
+        <button *ngIf="(i > 9)" class="knop2" (click)="selectedNummer(i)" id="VB{{ i }}">
+            PAGE {{ localPageN }} | INFO {{ i }}
+        </button>
+    </div>
+    <!--<div #formDet></div>-->
+</div>
+
+<div class="carousel" [style.height.px]="(sizeI.footer - sizeI.boxT)">
+    <div *ngFor="let item1 of albummd; let i = index">
+        <div class="slide" (click)="keuze(i)">
+            <img src="./album/thumb/{{item1.name}}"/>
+        </div>
+    </div>
+</div>
+
+<div class="divid1" #formDet></div>
+<div *ngIf="show" class="imgInfoBlok">
+    <div><h2>{{bevestig}}</h2></div>
+    <div id="button1A" Class="button1" (click)="geenPict()">niet opnemen</div>
+    <div id="button2A" class="button2" (click)="welPict()">opnemen</div>
+</div>
+
+<form #form="ngForm"
+      [ngStyle]="{'width.px': sizeI['breedte'] - 250,
+                  'top.px': topForm,
+                  'height:px': sizeI.footer - topForm - 100}">
+    <label>[{{ localPageN }} | {{ localVeld }}] -- volg nummer:</label>
+    <input type="number"
+           class="volgnr"
+           name="volgnr"
+           [(ngModel)]="volgnr"
+           (ngModelChange)="meldenNr($event)"/>
+
+    <input type="text"
+           class="titel"
+           [style.width.px]="sizeI.breedte  - 400"
+           name="titel"
+           [(ngModel)]="titel"
+           (ngModelChange)="meldenTitel($event)"/>
+
+    <fieldset ngModelGroup="onbewerkt">
+        <div #tekst1>
+            <label></label>
+            <textarea #inputArea
+                      class="onbewerkt"
+                      [style.height.px]="((sizeI.footer - topForm) / 2) - 150"
+                      type="text"
+                      name="text1"
+                      (click)="getCaretPos(inputArea)"
+                      [(ngModel)]="content1"
+                      (input)="term$.next($event.target.value)"
+                      #content1Ref="ngModel"
+            ></textarea>
+
+        </div>
+    </fieldset>
+
+    <fieldset ngModelGroup="bewerkt">
+        <label>safe HTML</label>
+        <div class="bewerkt"
+             [style.height.px]="((sizeI.footer - topForm) / 2) - 150">
+            <div [innerHTML]="secure"></div>
+        </div>
+        <hr>
+        <div *ngIf="!pristine">
+            <div id="button1" Class="button1" (click)="terug()">cancel</div>
+            <div id="button2" class="button2" (click)="nieuw()">commit</div>
+        </div>
+    </fieldset>
+</form>

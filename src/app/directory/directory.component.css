@@ -1,0 +1,22 @@
+.palet {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.dirItem {
+  margin: 15px;
+  padding: 10px;
+  background-color: #be6554;
+  border: double 4px white;
+  outline: solid 6px white;
+  display: block;
+  height: 100px;
+  width: 140px;
+  flex: 0;
+  box-shadow: 8px 8px 10px rgba(30, 30, 30, 0.8);
+  cursor: pointer;
+}

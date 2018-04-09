@@ -1,0 +1,87 @@
+<div [hidden]="hideLow"
+     class="teken1"
+     (click)="change(-1)">
+    <img src="./resources/left.png">
+</div>
+
+<div class="teken2"
+     (click)="stop()">
+    <img src="./resources/stop.png">
+</div>
+
+<div [hidden]="hideHigh"
+     class="teken3"
+     (click)="change(+1)">
+    <img src="./resources/right.png">
+</div>
+
+<div>
+    <div id="button1" class="teken4" (click)="album()">naar ALBUM</div>
+</div>
+
+<div class="pictGroot">
+    <img src="{{treemd['selectPict']['path']}}{{treemd['selectPict']['name']}}">
+</div>
+
+<div class="imgInfoBlok">
+    <!--<div class="imgInfo">{{imgRestrict}}</div>-->
+    <!--<div class="imgInfo">{{imgThumb}}</div>-->
+    <div *ngIf="show" class="imgInfo"><h2>{{melding}}</h2></div>
+</div>
+
+<form #form="ngForm"
+      [ngStyle]="{'top.px': sizeI.boxT + 5,
+                  'height.px': sizeI.footer - sizeI.boxT - 15,
+                  'padding-left.px': 10,
+                  'padding-right.px': 10}">
+    <fieldset ngModelGroup="onbewerkt">
+        <label>
+            title:
+        </label>
+        <textarea class="labelT"
+                  type="text"
+                  name="title1"
+                  [(ngModel)]="title1"
+                  (input)="tit1$.next($event.target.value)"
+                  [ngStyle]="{'height.px': 60, 'margin-top.px': 5}"
+                  #title1Ref="ngModel">
+        </textarea>
+        <hr>
+        <label>
+            alpha:
+        </label>
+        <input class="labelT"
+                type="number"
+                  name="alpha"
+                  [(ngModel)]="alpha"
+                  (input)="tit2$.next($event.target.value)"
+                  [style.width.px]="80"
+                  #alphaRef="ngModel">
+        <hr>
+
+        <div #tekst1>
+            <label>{{ treemd.selectPict.name }}</label>
+            <textarea class="hoog"
+                      [style.height.px]="((sizeI['footer'] - sizeI['boxT']) / 2) - 200"
+                      type="text"
+                      name="text1"
+                      [(ngModel)]="inhoud"
+                      (input)="term$.next($event.target.value)"
+                      #content1Ref="ngModel">
+            </textarea>
+        </div>
+
+    </fieldset>
+    <fieldset ngModelGroup="bewerkt">
+        <div class="bewerkt"
+             [ngStyle]="{'height.px': ((sizeI['footer'] - sizeI['boxT']) / 2) - 200,
+                         'padding.px': 10}">
+            <div [innerHTML]="secure"></div>
+        </div>
+        <hr>
+        <div *ngIf="!pristine">
+            <div id="button2" class="button2" (click)="reset()">cancel</div>
+            <div id="button3" class="button3" (click)="nieuw()">commit</div>
+        </div>
+     </fieldset>
+</form>

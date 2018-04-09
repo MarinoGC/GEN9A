@@ -1,0 +1,135 @@
+//_____________________________________________________________________
+.teken {
+  position: absolute;
+  top: 0.9em;
+  cursor: pointer;
+  z-index: 5;
+  img {
+    width: 0.7em;
+    height: 0.7em;
+  }
+}
+.teken1 {
+  .teken;
+  left: calc(75vw - 3em);
+}
+.teken2 {
+  .teken;
+  left: 75vw;
+}
+.teken3 {
+  .teken;
+  left: calc(75vw + 3em);
+}
+.teken4 {
+  .teken;
+  top: 0.6em;
+  border-radius: 4px;
+  background: blue;
+  padding: 4px;
+  color: #7d7d7d;
+  left: calc(75vw + 6em);
+}
+//__________________________________________________
+.pictGroot {
+  img {
+    position: absolute;
+    top: 45vh;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    max-width: 40vw;
+    width: auto;
+    height: auto;
+    margin-top: 4em;
+    max-height: calc(80vh - 10em);
+    display: block;
+    border: double 8px white;
+    box-shadow: 16px 16px 16px 2px rgba(0,0,0,0.4);
+  }
+}
+//__________________________________________________
+form {
+  position: absolute;
+  left: 50vw;
+  width: 45vw;
+  background-color: #4e4e4e;
+  box-shadow: 8px 8px 16px 2px rgba(0,0,0,0.4);
+  overflow-y: auto;
+}
+label {
+  display: inline-block;
+  margin: .5em 0;
+  color: #f29b16;
+  font-weight: bold;
+}
+.info {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+  background-color: #e5e0e0;
+  width: calc(40vw - 7em);
+}
+input {
+  .info;
+  margin-bottom: 1em;
+}
+textarea {
+  .info;
+}
+.labelT {
+  height: 25px;
+}
+.hoog {
+  font-size: 1em;
+  overflow-y: auto;
+  width: 95%;
+}
+.bewerkt {
+  font-size: 1em;
+  overflow-y: auto;
+  background-color: #e3e3e3;
+  overflow-y: auto;
+}
+
+.imgInfoBlok {
+  position: absolute;
+  width: 45%;
+  z-index: 15;
+}
+
+.imgInfo {
+  background-color: rgba(205, 211, 237, 0.6);
+  margin: 20px;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.button {
+  float: left;
+  margin: 10px;
+  font-size: 1em;
+  font-family: Arial;
+  text-align: center;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 6em;
+}
+
+.button1 {
+  .button;
+  clear: both;
+  background-color: #402fff;
+}
+.button2 {
+  .button;
+  clear: none;
+  background-color: #26f73e;
+}
+.button3 {
+  .button;
+  clear: none;
+  background-color: #f70e26;
+}

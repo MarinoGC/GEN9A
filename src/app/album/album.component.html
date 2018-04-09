@@ -1,0 +1,28 @@
+<div class="palet">
+  <div *ngFor="let item1 of albummd; let i = index">
+    <figure class="binnen" (click)="click$.next(item1)"
+            (click)="keuze(item1)"
+            [style.outline]="getStyle(item1)">
+      <img src="./album/thumb/{{item1.name}}"/>
+    </figure>
+  </div>
+</div>
+
+<div *ngIf="show && !sure" class="imgInfoBlok">
+  <div>
+    <h2>rode beelden de-selecteren of verwijderen</h2>
+    <h3>blijft 10 sec. mogelijk</h3>
+  </div>
+  <div id="button1A1" class="button1" (click)="deselect()">deselect</div>
+  <div id="button2A1" class="button2" (click)="verwijder1()">verwijderen</div>
+</div>
+
+<div *ngIf="sure" class="imgInfoBlok">
+  <div>
+    <h2>rode beelde ECHT verwijderen?</h2>
+    <h3>blijft 10 sec. mogelijk</h3>
+  </div>
+  <div id="button1A2" class="button1" (click)="deselect()">deselect</div>
+  <div id="button2A2" class="button2" (click)="verwijder2()">ik weet het zeker</div>
+</div>
+

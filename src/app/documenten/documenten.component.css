@@ -1,0 +1,160 @@
+.knopA {
+  display: block;
+  clear: none;
+  padding: 2px;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 12px;
+  border-style: solid;
+  border-width: thin;
+  cursor: pointer;
+}
+.knop1 {
+  display: block;
+  clear: none;
+  padding: 2px;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 12px;
+  border-style: solid;
+  border-width: thin;
+  cursor: pointer;
+  color: black;
+  float: left;
+  width: 110px;
+  margin-bottom: 5px;
+}
+.knop2 {
+  display: block;
+  clear: none;
+  padding: 2px;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 12px;
+  border-style: solid;
+  border-width: thin;
+  cursor: pointer;
+  color: #a8201e;
+  float: left;
+  width: 110px;
+  margin-bottom: 5px;
+}
+.divid1 {
+  width: 100%;
+  clear: left;
+  float: left;
+}
+.veld1 {
+  background-color: #f3f3f3;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #aaaaaa;
+  margin-top: 5px;
+}
+.veld2 {
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #dedede;
+  margin-top: 5px;
+}
+.veld2 img {
+  max-width: 95%;
+  margin: 2%;
+}
+.imgInfoBlok {
+  position: absolute;
+  width: 45%;
+  z-index: 15;
+  background-color: rgba(205, 211, 237, 0.6);
+  margin: 20px;
+  box-shadow: 10px 10px 10px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+}
+.imgInfo {
+  background-color: rgba(205, 211, 237, 0.6);
+  margin: 20px;
+  box-shadow: 10px 10px 10px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+}
+.carousel {
+  position: absolute;
+  right: 0px;
+  width: 220px;
+  overflow: auto;
+  background-color: rgba(178, 138, 105, 0.36);
+}
+.carousel img {
+  max-width: 180px;
+  margin: 10px;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+#carousel .slide {
+  display: inline-block;
+}
+form {
+  position: absolute;
+  margin-left: 10px;
+}
+label {
+  display: inline-block;
+  width: 15em;
+  margin: .5em 0;
+  color: #cb1a15;
+  font-weight: bold;
+}
+.info {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+  background-color: #e5e0e0;
+}
+.onbewerkt {
+  width: 95%;
+  font-size: 1em;
+  padding: 1em;
+  background-color: #fafafa;
+  overflow-y: auto;
+}
+.bewerkt {
+  width: 95%;
+  font-size: 1em;
+  padding: 1em;
+  background-color: #e3e3e3;
+  overflow-y: auto;
+}
+.volgnr {
+  width: 100px;
+}
+.titel {
+  width: 400px;
+}
+.button1 {
+  clear: both;
+  float: left;
+  margin: 10px;
+  font-size: 1em;
+  font-family: Arial;
+  background-color: #26f73e;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 8em;
+}
+.button2 {
+  clear: none;
+  float: left;
+  margin: 10px;
+  font-size: 1em;
+  font-family: Arial;
+  background-color: #f7860c;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 8em;
+}

@@ -1,0 +1,68 @@
+@shadow: RGBA(125,126,126,0.4);
+@radius: 10px;
+@knop1: #94b5c3;
+@knop1H: #c8e9f7;
+@knop1HR: #f7860c;
+@knop1HG: #26f73e;
+@knop2: #61818f;
+@knop3: #afd2ff;
+//_____________________________________________________
+.palet {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+figure {
+  margin: 14px;
+  border: double 4px white;
+  outline: solid 6px white;
+  display: block;
+  height: 120px;
+  flex: 0;
+  position: relative;
+  box-shadow: 10px 10px 10px rgba(15, 15, 15, 0.6);
+  cursor: pointer;
+}
+//__________________________________________
+.button1 {
+  clear: both;
+  float: left;
+  margin: 10px;
+  font-size: 1em;
+  font-family: Arial;
+  background-color: @knop1HG;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 8em;
+}
+
+.button2 {
+  clear: none;
+  float: left;
+  margin: 10px;
+  font-size: 1em;
+  font-family: Arial;
+  background-color: @knop1HR;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 8em;
+}
+//___________________________________________________________________
+.imgInfoBlok {
+  position: absolute;
+  width: 45%;
+  z-index: 15;
+  background-color: rgba(205, 211, 237, 0.6);
+  margin: 20px;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  padding: 10px;
+}

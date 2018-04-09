@@ -1,0 +1,55 @@
+<div *ngIf="ready">
+
+  <div *ngIf="(treemd.diepte > 0)" class="tree-nav0"
+       [ngStyle]="{'top.px': sizeI.boxT + 2,
+                     'height.px': sizeI.footer - sizeI.boxT - 4}">
+    <div *ngFor="let navFilter of treemd['filter'][0]['menu2']; let j=index"
+         class="button2"
+         [style.background-color]="getStyle(j, 0)"
+         (click)="enterItem(j, 0, navFilter)"
+         on-mouseenter="enterItem(j, 0, navFilter)"
+         on-mouseleave="leaveItem()">
+      {{navFilter}}
+    </div>
+  </div>
+
+  <div *ngIf="(treemd.diepte > 1)" class="tree-nav1"
+       [ngStyle]="{'top.px': sizeI.boxT + 2,
+                     'height.px': sizeI.footer - sizeI.boxT - 4}">
+    <div *ngFor="let navFilter of treemd['filter'][1]['menu2']; let j=index"
+         class="button2"
+         [style.background-color]="getStyle(j, 1)"
+         (click)="enterItem(j, 1, navFilter)"
+         on-mouseenter="enterItem(j, 1, navFilter)"
+         on-mouseleave="leaveItem()">
+      {{navFilter}}
+    </div>
+  </div>
+
+  <div *ngIf="(treemd.diepte > 2)" class="tree-nav2"
+       [ngStyle]="{'top.px': sizeI.boxT + 2,
+                     'height.px': sizeI.footer - sizeI.boxT - 4}">
+    <div *ngFor="let navFilter of treemd['filter'][2]['menu2']; let j=index"
+         class="button2"
+         [style.background-color]="getStyle(j, 2)"
+         (click)="enterItem(j, 2, navFilter)"
+         on-mouseenter="enterItem(j, 2, navFilter)"
+         on-mouseleave="leaveItem()">
+      {{navFilter}}
+    </div>
+  </div>
+
+  <div class="palet"
+       [ngStyle]="{'top.px': sizeI.boxT + 10,
+                     'height.px': sizeI.footer - sizeI.boxT - 20,
+                     'left.px': (treemd.diepte * 190 + 20)}">
+    <div *ngFor="let pict of treemd['contents'][treemd['path']]; let i = index">
+      <figure *ngIf="i > 0" (click)="selectPict({'name': pict['name'], 'nr': i})">
+        <img src="./thumb/{{pict['name']}}">
+      </figure>
+    </div>
+  </div>
+
+</div>
+
+

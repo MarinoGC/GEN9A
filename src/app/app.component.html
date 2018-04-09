@@ -1,0 +1,118 @@
+<body>
+<header class="header">
+    <div #header class="lineS1"></div>
+    <div #topDet *ngFor="let item of navItems; let id=index">
+        <div (click)="navigate(item)">
+            <div *ngIf="item.main"
+                 id="{{item.name}}"
+                 class="button1"
+                 [style.background-color]="getStyle(id)">
+                {{item.title}}
+            </div>
+        </div>
+    </div>
+
+    <div class="buttonHelp" (click)="help()">
+        HELP
+    </div>
+
+    <div *ngIf="extraInfo['nav']['type'] == 3">
+        <div class="button4" (click)="inter()">inter</div>
+        <div class="button4" *ngIf="extraInfo['inter']" (click)="action()">action</div>
+    </div>
+
+</header>
+<div #boxDetT></div>
+
+<main   *ngIf="ready"
+        [ngStyle]="{'height.px': (sizeI.hoogte - sizeI.boxT - correctieFooter)}">
+
+    <nav *ngIf="(extraInfo['nav']['type'] == 0)" class="mainNav">
+        <div class="mainKeuze" (click)="onUploaded('book keeping')">
+            BOEKHOUDING
+        </div>
+        <div class="mainKeuze" (click)="trash(0)">
+            TRASH LEGEN
+        </div>
+        <div class="mainKeuze" (click)="info('PUBLICEREN')">
+            ALLES SCHRIJVEN
+        </div>
+        <div class="mainKeuze" (click)="infoDoc('DOCUMENTEN SCHRIJVEN')">
+            DOCUMENTEN SCHRIJVEN
+        </div>
+    </nav>
+
+    <p *ngIf="extraInfo['nav']['type'] == 0">
+        <app-home (onUploaded)="onUploaded($event)"
+                  [sizeI]="sizeI">
+        </app-home></p>
+    <p *ngIf="extraInfo['nav']['type'] == 1">
+        <app-tree [treemd]="treemd"
+                  [extraInfo]="extraInfo"
+                  [sizeI]="sizeI">
+        </app-tree></p>
+    <p *ngIf="extraInfo['nav']['type'] == 2">
+        <app-item [treemd]="treemd"
+                  [extraInfo]="extraInfo"
+                  (pristineMelding)="pristineMelding($event)">
+        </app-item></p>
+    <p *ngIf="extraInfo['nav']['type'] == 3">
+        <app-shuffle [treemd]="treemd"
+                     [extraInfo]="extraInfo"
+                     [sizeI]="sizeI">
+        </app-shuffle></p>
+    <p *ngIf="extraInfo['nav']['type'] == 4">
+        <app-directory [treemd]="treemd"
+                       [extraInfo]="extraInfo">
+
+        </app-directory></p>
+    <p *ngIf="extraInfo['nav']['type'] == 5">
+        <app-album [treemd]="treemd"
+                   [extraInfo]="extraInfo"
+                   (newAlbum)="newAlbum($event)"
+                   [sizeI]="sizeI">
+        </app-album></p>
+    <p *ngIf="extraInfo['nav']['type'] == 6">
+        <app-documenten [extraInfo]="extraInfo"
+                        [aantalVelden]="aantalVelden"
+                        [aantalPag]="aantalPag"
+                        [sizeI]="sizeI"
+                        (pristineMelding)="pristineMelding($event)">
+        </app-documenten></p>
+</main>
+
+<div class="boxL" *ngIf="show"><h1>{{warn}}</h1></div>
+
+<footer #footerDet
+        [ngStyle]="{'height.px': correctieFooter}">
+    {{melding}} || TYPE: {{extraInfo['nav']['type']}}
+</footer>
+<div #bottomDetT></div>
+
+<div *ngIf="trashWarning" class="trashWarning">
+    <div class="button6" (click)="trash(1)">DOORGAAN</div>
+    <div class="button7" (click)="trash(2)">CANCEL</div>
+</div>
+
+<div *ngIf="publiceer" class="trashWarning">
+    <div class="button8">PUBLICEREN</div>
+</div>
+
+<div class="boxR" *ngIf="helpShow"
+     [style.top.px]="sizeI['header'] + 50"
+     [style.left.px]="sizeI['breedte'] / 2"
+     [style.height.px]="sizeI['hoogte'] - sizeI['header'] - 150"
+     [style.width.px]="sizeI['breedte'] / 2 - 100" >
+    <div [innerHTML]="secure"></div>
+</div>
+
+<div *ngIf="bezig" class="groot"
+     [ngStyle]="{'top.px': (sizeI.boxT + 20),
+                 'left.px': 250}">
+    <img src="{{picture}}"
+         [ngStyle]="{'max-height.px': (sizeI['footer'] - sizeI['boxT'] - 50),
+                     'max-width.px': (sizeI['breedte'] - 300)}">
+</div>
+
+
+</body>
