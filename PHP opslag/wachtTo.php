@@ -32,7 +32,7 @@ $GoalCounter = sizeof($GoalNew);
 
 for ($n = 1; $n < sizeof($SourceFiles); $n++) {
     if($SourceFiles[$n]['sel']) {
-        $item = ['name' => $SourceFiles[$n]['name'], 'nr' => $GoalCounter, 'sel' => false];
+        $item = ['name' => $SourceFiles[$n]['name'], 'nr' => $GoalCounter, 'sel' => false, 'width' => $SourceFiles[$n]['width'], 'height' => $SourceFiles[$n]['height']];
         array_push($GoalNew, $item);
         $GoalCounter++;
         rename($SourceDir . $SourceFiles[$n]['name'], $GoalDir . $SourceFiles[$n]['name']);
