@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgUploaderModule } from 'ngx-uploader';
 
+import { environment } from './../environments/environment';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { treemd } from './reducers/tree.reducer';
@@ -38,7 +40,7 @@ import { TreeComponent } from './tree/tree.component';
         HttpClientModule,
         NgUploaderModule,
         StoreModule.forRoot({albummd, sizeI, treemd, extraInfo}),
-        StoreDevtoolsModule.instrument({maxAge: 25})
+        !environment.production ? StoreDevtoolsModule.instrument({maxAge: 25}) : []
     ],
     providers: [],
     bootstrap: [AppComponent]

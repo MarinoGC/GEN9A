@@ -15,7 +15,8 @@ $nodeInv = $path . $nav . '.md';
 
 $fileSel = $ext1['fileSel'];
 
-$resFiles = array();
+//$resFiles = array();
+$resFiles[0] = ['upToDate' => false];
 for ($m = 1; $m < sizeof($fileSel); $m++) {
         $item = [   'name' => $fileSel[$m]['name'],
                     'nr' => $m - 1,

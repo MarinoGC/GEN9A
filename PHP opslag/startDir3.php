@@ -137,9 +137,9 @@ function dirToArray($dir) {
     }
     array_push($pathTot, $pathNow);
 
+    $counter = 0;
     foreach (scandir($dir) as $node) {
         $ext = strtolower(pathinfo($node, PATHINFO_EXTENSION));
-        $counter = 0;
         if ($node == '.' || $node == '..' || $ext == 'ds_store' || $ext == 'md') continue;
         if (filterRes($node) && $short) continue;
         if (is_dir($dir . '/' . $node)) {

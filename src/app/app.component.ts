@@ -210,15 +210,14 @@ export class AppComponent implements OnInit{
                 this.store.dispatch({type: TREE_ALL, payload: this.treemd});
 
                 this.melding = `phase ${this.phase2}: afronden | ${this.teller2}`;
-                if (this.first1) {
-                    this.first1 = false;
+                if (this.first2) {
+                    this.first2 = false;
                     setTimeout(() =>{
-                        this.phase2++;
                         this.first2 = true;
+                        this.phase2++;
                         this.melding = '';
                         this.subtimer2.unsubscribe();
                         this.publiceer = false;
-                        this.melding = '';
                         console.log(`phase ${this.phase2}: ready | ${this.teller2}`);
                     }, 3500)
                 }

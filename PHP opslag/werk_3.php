@@ -85,13 +85,16 @@ if ($count > 0) {
         $n++;
     }
 }
-//ontbrekende md files aanmaken
+// ontbrekende md files aanmaken,
+// de relevante doc-files uitfiulteren en sorteren
+// een gesorteerde (op volgnummer) extra array maken van alle pagina's
 $count = 0;
 $ext1 = [];
 $ext1Sort = [];
+$ext2Sort = [];
 for ($i = 0; $i < $pagM; $i++) {
     $ext = [];
-    $mdInv = [];
+//    $mdInv = [];
     $iS = strval($i);
     for ($j = 0; $j < $veldenM; $j++) {
         $jS = str_pad(strval($j),2,"0",STR_PAD_LEFT);
@@ -101,7 +104,9 @@ for ($i = 0; $i < $pagM; $i++) {
             $sub = (object)['content1' => $data[$idN]['content1'], 'content2' => $data[$idN]['content2'], 'veld' => $jS, 'pag' => $iS, 'titel' => $data[$idN]['titel'], 'volgnr' => $data[$idN]['volgnr']];
             array_push($ext, $sub);
             if ($data[$idN]['volgnr'] > -1) {
-                array_push($mdInv, ['content1' => $data[$idN]['content1'], 'content2' => $data[$idN]['content2'], 'veld' => $jS, 'pag' => $iS, 'titel' => $data[$idN]['titel'], 'volgnr' => $data[$idN]['volgnr']]);
+                $el = ['content1' => $data[$idN]['content1'], 'content2' => $data[$idN]['content2'], 'veld' => $jS, 'pag' => $iS, 'titel' => $data[$idN]['titel'], 'volgnr' => $data[$idN]['volgnr']];
+//                array_push($mdInv, $el);
+                array_push($ext2Sort, $el);
             }
         }  else {
             $empty = (object)['content1' => '', 'content2' => '', 'veld' => $jS, 'pag' => $iS, 'titel' => '', 'volgnr' => -1];
@@ -115,12 +120,15 @@ for ($i = 0; $i < $pagM; $i++) {
         }
     }
     array_push($ext1, $ext);
-    sortArrayByKey($mdInv, 'volgnr', false);
-    array_push($ext1Sort, $mdInv);
+//    sortArrayByKey($mdInv, 'volgnr', false);
+//    array_push($ext1Sort, $mdInv);
 }
+sortArrayByKey($ext2Sort, 'volgnr', false);
+array_push($ext1, $ext2Sort);
+
 
 //____________maak de nieuwe gefilterde en gesorteerde 'docSort.md' file aan_____________
-$ext2 = json_encode($ext1Sort);
+$ext2 = json_encode($ext1);
 $mdFile = $NowDir . '/inventarisatie/docSort.md';
 $myFile = fopen($mdFile, 'w') or die('unable to open file');
 fwrite($myFile, $ext2);
