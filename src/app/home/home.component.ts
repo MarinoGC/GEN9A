@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private pictOutput: string;
     public infoConsole;
 
+    private wait = false;
+
 constructor(private dataService: DataService) {
         this.files = []; // local uploading files array
         this.uploadInput = new EventEmitter<UploadInput>(); // input events, we use this to emit data to ngx-uploader
@@ -61,11 +63,14 @@ constructor(private dataService: DataService) {
                 break;
             case 'uploading':
                 // update current data in files array for uploading file
-                const index = this.files.findIndex(file => file.id === output.file.id);
-                this.files[index] = output.file;
-                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + 'name: ' + output.file.name);
+                if (!this.wait) {
+                    this.wait = true;
+                    const index = this.files.findIndex(file => file.id === output.file.id);
+                    this.files[index] = output.file;
+                }
                 break;
             case 'done':
+                this.wait = false;
                 this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + output.file.response.melding);
                 this.count++;
                 if (output.file.response.status) {
@@ -101,8 +106,10 @@ constructor(private dataService: DataService) {
             method: 'POST',
             data: { foo: 'bar' }
         };
-        this.uploadInput.emit(event);
-    }
+        if (!this.wait) {
+            this.uploadInput.emit(event);
+        }
+     }
 
     cancelUpload(id: string): void {
         this.uploadInput.emit({ type: 'cancel', id: id });
