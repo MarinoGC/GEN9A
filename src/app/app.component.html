@@ -102,7 +102,8 @@
      [style.top.px]="sizeI['header'] + 50"
      [style.left.px]="sizeI['breedte'] / 2"
      [style.height.px]="sizeI['hoogte'] - sizeI['header'] - 150"
-     [style.width.px]="sizeI['breedte'] / 2 - 100" >
+     [style.width.px]="sizeI['breedte'] / 2 - 100"
+     (click)="helpStop()">
     <div [innerHTML]="secure"></div>
 </div>
 

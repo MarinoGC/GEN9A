@@ -466,6 +466,9 @@ export class AppComponent implements OnInit{
                 });
         }
     }
+    helpStop() {
+        this.helpShow = false;
+    }
 //______________________________________________________TRASH
     trash(value) {
         this.trashWarning = (value == 0);

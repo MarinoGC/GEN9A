@@ -1,13 +1,15 @@
 <div class="drop-container"
-     [ngStyle]="{'top.px': ((sizeI.footer + sizeI.boxT)/2 - 160),
-                     'left.px': ((sizeI.breedte / 2) - 70)}"
-     ngFileDrop (uploadOutput)="onUploadOutput($event)"
-     [ngClass]="{ 'is-drop-over': dragOver }">
-    <h1>Drag & Drop</h1>
-
+     [ngStyle]="{'top.px': ((sizeI.footer + sizeI.boxT)/4 - 160),
+                     'left.px': ((sizeI.breedte / 2) - 160)}">
+    <h2>UpLoading</h2>
     <label class="upload-button">
         <input type="file" ngFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
-        or choose file(s)
+        choose file(s)
     </label>
 </div>
 
+<div class="infoConsole"
+     [ngStyle]="{'top.px': (3 * (sizeI.footer + sizeI.boxT)/4 - 300),
+                     'left.px': ((sizeI.breedte / 2) - 310)}"
+     [innerHtml]="infoConsole.secure">
+</div>

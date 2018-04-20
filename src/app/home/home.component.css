@@ -8,7 +8,7 @@
   border-radius: 20px;
   background-color: black;
 }
-.drop-container h1 {
+.drop-container h2 {
   font-weight: bold;
   display: block;
   text-align: center;
@@ -16,6 +16,17 @@
   font-size: 40px;
   color: #DD0A31;
   margin-top: 80px;
+}
+.infoConsole {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  padding: 20px;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  overflow-y: auto;
 }
 .upload-button {
   width: 150px;

@@ -54,7 +54,7 @@ export class ShuffleComponent implements OnInit, OnDestroy {
                 private http: HttpClient,
                 private shuffleService: ShuffleService) {
         this.werk = this.click$            //lees het aantal clicks, de optelling eindigt na de wachtijd pauze
-            .bufferTime(400)
+            .bufferTime(1000)              //vrij lang i.v.m. iPad, die anders gaat zoomen
             .map(data => (data.length))
             .subscribe(data => {
                 if (data > 0) {

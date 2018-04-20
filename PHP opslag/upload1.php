@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
+
 header("Access-Control-Allow-Origin: *");
 //upload1.php
 
@@ -22,7 +25,8 @@ if (!is_dir($goalDir)) {
     mkdir($goalDir, 0755);
 }
 
-$generatedName = md5($_FILES['file']['tmp_name']).$ext;
+$generatedName = md5($_FILES['file']['tmp_name']);
+//$generatedName = md5($_FILES['file']['tmp_name']).$ext;
 $filePath = $path.$generatedName;
 
 // Check if file already exists
@@ -44,7 +48,7 @@ if (file_exists($full_filename)) {
         'status'   => false,
         'melding'  => $dirFound
     ));
-    exit;
+    return;
 }
 
 $extra = array(

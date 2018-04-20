@@ -43,7 +43,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
                 private http: HttpClient,
                 private albumService: AlbumService) {
         this.werk = this.click$            //lees het aantal clicks, de optelling eindigt na de wachtijd pauze
-            .bufferTime(400)
+            .bufferTime(800)              //vrij lang i.v.m. iPad, die anders gaat zoomen
             .map(data => (data.length))
             .subscribe(data => {
                 if (data > 0) {
