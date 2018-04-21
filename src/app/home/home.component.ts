@@ -37,8 +37,6 @@ constructor(private dataService: DataService) {
 
     onUploadOutput(output: UploadOutput): void {
         console.log(output); // lets output to see what's going on in the console
-        this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + '__________');
-        this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + output.type);
         if (this.klaar) {
             this.infoConsole = this.dataService.addSecurity('');
         }
@@ -49,21 +47,23 @@ constructor(private dataService: DataService) {
                 this.nrFiles = this.files.length;
                 this.count = 0;
                 this.countUp = 0;
-                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>aantal: ' + this.nrFiles.toString());
+                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>ALL ADDED - aantal: ' + this.nrFiles.toString());
                 this.startUpload();
                 break;
             case 'addedToQueue':
                 // add file to array when added
-                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + 'name: ' + output.file.name);
+                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>ADDED - name: ' + output.file.name);
                 this.files.push(output.file);
                 break;
             case 'start':
                 this.klaar = false;
-                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + 'name: ' + output.file.name);
+                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>START - name: ' + output.file.name);
                 break;
             case 'uploading':
                 // update current data in files array for uploading file
                 if (!this.wait) {
+                    this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + '__________');
+                    this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>UPLOADING - ' + output.file.name);
                     this.wait = true;
                     const index = this.files.findIndex(file => file.id === output.file.id);
                     this.files[index] = output.file;
@@ -71,13 +71,12 @@ constructor(private dataService: DataService) {
                 break;
             case 'done':
                 this.wait = false;
-                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + output.file.response.melding);
-                this.count++;
+                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>DONE - ' + output.file.response.melding);
+                 this.count++;
                 if (output.file.response.status) {
                     this.countUp++;
                 }
                 this.pictOutput = output['file']['name'];
-                this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + 'name: ' + output.file.name);
                 this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + 'size: ' + Math.round(output.file.size / 1000).toString() + ' kB');
                 this.infoConsole = this.dataService.addSecurity(this.infoConsole.new + '<br/>' + 'speed: ' +  output.file.progress.data.speedHuman);
 
@@ -125,6 +124,7 @@ constructor(private dataService: DataService) {
 
     ngOnInit() {
         this.infoConsole = this.dataService.addSecurity('');
+
     }
 
     ngOnDestroy() {

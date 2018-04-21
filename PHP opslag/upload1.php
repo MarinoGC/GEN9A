@@ -5,16 +5,22 @@ error_reporting(E_ALL | E_STRICT);
 header("Access-Control-Allow-Origin: *");
 //upload1.php
 
+ini_set('memory_limit', '256M');    //veel geheugen reserveren
+set_time_limit(0);                  //neem de tijd
+
 $fileName = $_FILES['file']['name'];
 $fileType = $_FILES['file']['type'];
 $fileSize = $_FILES['file']['size'];
 $fileError = $_FILES['file']['error'];
+$fileTemp = $_FILES['file']['tmp_name'];
 
-
-//WORKAROUND: iPad noemt alle files <image.jpg>.
+//WORKAROUND: iPad noemt alle camera-opgenomen-files files <image.jpg>.
+$iPad = '';
 if (strtolower($fileName) == "image.jpg") {             // Test of het de beruchte file naam is
     $fileName = $fileSize . $fileName;                  // Maak de file "uniek" met de file size
+    $iPad = ' - iPad';
 }                                                       // Geen datum genomen. EXIF in $filetmp bevat geen creation date meer
+
 
 $info = $_POST;
 
@@ -26,7 +32,6 @@ if (!is_dir($goalDir)) {
 }
 
 $generatedName = md5($_FILES['file']['tmp_name']);
-//$generatedName = md5($_FILES['file']['tmp_name']).$ext;
 $filePath = $path.$generatedName;
 
 // Check if file already exists
@@ -46,7 +51,7 @@ if (file_exists($full_filename)) {
     echo json_encode(array(
         'pict' => $fileName,
         'status'   => false,
-        'melding'  => $dirFound
+        'melding'  => $dirFound + $iPad
     ));
     return;
 }
