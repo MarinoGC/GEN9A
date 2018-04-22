@@ -1,0 +1,18 @@
+.drop-container {
+  position: absolute;
+  user-select: none;
+  width: 300px;
+  height: 300px;
+  left: 50px;
+  border: 3px dashed #fff;
+  border-radius: 20px;
+  background-color: black;
+}
+.drop-container h2 {
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  font-size: 30px;
+  color: #DD0A31;
+  margin: 20px;
+}

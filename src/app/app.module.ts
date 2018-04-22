@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgUploaderModule } from 'ngx-uploader';
 
 import { environment } from './../environments/environment';
 
@@ -17,10 +16,10 @@ import { AppComponent } from './app.component';
 import { AlbumComponent } from './album/album.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { DocumentenComponent } from './documenten/documenten.component';
-import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './item/item.component';
 import { ShuffleComponent } from './shuffle/shuffle.component';
 import { TreeComponent } from './tree/tree.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -29,16 +28,15 @@ import { TreeComponent } from './tree/tree.component';
         AlbumComponent,
         DirectoryComponent,
         DocumentenComponent,
-        HomeComponent,
         ItemComponent,
         ShuffleComponent,
-        TreeComponent
+        TreeComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        NgUploaderModule,
         StoreModule.forRoot({albummd, sizeI, treemd, extraInfo}),
         !environment.production ? StoreDevtoolsModule.instrument({maxAge: 25}) : []
     ],

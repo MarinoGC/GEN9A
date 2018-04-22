@@ -37,11 +37,15 @@ for ($n = 1; $n < sizeof($SourceFiles); $n++) {
         $GoalCounter++;
         rename($SourceDir . $SourceFiles[$n]['name'], $GoalDir . $SourceFiles[$n]['name']);
     } else {
-        $item = ['name' => $SourceFiles[$n]['name'], 'nr' => $SourceCounter, 'sel' => false];
+        $item = ['name' => $SourceFiles[$n]['name'], 'nr' => $SourceCounter, 'sel' => false, 'width' => $SourceFiles[$n]['width'], 'height' => $SourceFiles[$n]['height']];
         array_push($SourceNew, $item);
         $SourceCounter++;
     }
 }
+
+$item = ['upToDate' => true];
+array_unshift($SourceNew, $item);
+array_unshift($GoalNew, $item);
 
 $NodeSourceFile = $SourceDir . $SourceNav . '.md';
 $myFile = fopen($NodeSourceFile, 'w') or die('unable to open file');
@@ -54,10 +58,6 @@ $myFile = fopen($NodeGoalFile, 'w') or die('unable to open file');
 fwrite($myFile, json_encode($GoalNew));
 fclose($myFile);
 chmod($myFile, 0755);
-
-$item = ['upToDate' => false];
-array_unshift($SourceNew, $item);
-array_unshift($GoalNew, $item);
 
 $cc = (object) ['goal' => $GoalNew, 'goalP' => $GoalPath, 'source' => $SourceNew, 'sourceP' => $SourcePath];
 $res = json_encode($cc);

@@ -43,8 +43,7 @@
     </nav>
 
     <p *ngIf="extraInfo['nav']['type'] == 0">
-        <app-home (onUploaded)="onUploaded($event)"
-                  [sizeI]="sizeI">
+        <app-home [sizeI]="sizeI">
         </app-home></p>
     <p *ngIf="extraInfo['nav']['type'] == 1">
         <app-tree [treemd]="treemd"
